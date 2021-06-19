@@ -1,5 +1,6 @@
 # CountDownTimer
 Live version: https://trouvaile.github.io/CountDownTimer/
+
 Tier: 1-Beginner
 
 We all have important events we look forward to in life, birthdays, anniversaries, and holidays to name a few. Wouldn't it be nice to have an app that counts down the months, days, hours, minutes, and seconds to an event? Countdown Timer is just that app!
