@@ -33,12 +33,11 @@ body {
 }
 
 .countdown-container .items {
-    padding: 0 2rem 0 2rem;
+    padding: 0 3rem 0 2rem;
 }
 
 .countdown-container .items span {
     font-family: 'Oswald', sans-serif;
-    padding: 0 0 0 0.7rem;
     font-size: 5rem;
 }
 

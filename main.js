@@ -6,23 +6,29 @@ const sec = document.getElementById("seconds")
 var modal = document.getElementById("myModal")
 
 function CalTime() {
-    const targetTime = new Date(time.value)
-    let run = setInterval(function () {   
+    let run = setInterval(function () {  
+        let targetTime = new Date(time.value) 
         let currTime = new Date()
         let totalsec = (targetTime - currTime) / 1000
-        if (totalsec <= 0) {
+        if (totalsec < 0) {
             showErr()
             clearInterval(run)
-        } else {
+        } else if(totalsec===0) {
+            day.innerHTML = '0'
+            hour.innerHTML = '0'
+            min.innerHTML = '0'
+            sec.innerHTML = '0'
+            showComplete()
+            clearInterval(run)
+        }else {
             let d = Math.floor(totalsec / 3600 / 24)
             let h = Math.floor(totalsec / 3600) % 24
             let m = Math.floor(totalsec / 60) % 60
             let s = Math.floor(totalsec) % 60
-            console.log(d,h,m,s)
             day.innerHTML = d
-            hour.innerHTML = h
-            min.innerHTML = m
-            sec.innerHTML = s
+            hour.innerHTML = formatTime(m)
+            min.innerHTML = formatTime(h)
+            sec.innerHTML = formatTime(s)
         }
     }, 1000)
 }
@@ -36,6 +42,25 @@ function showErr() {
         modal.style.display = "none";
     }
     time.value = ""
+}
+
+function showComplete(){
+    let modalBody = document.getElementById("err-content")
+    modalBody.innerHTML = "ITS TIME BOY"
+    modal.style.display = "block";
+    let span = document.getElementsByClassName("close")[0];
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    time.value = ""
+}
+
+function formatTime(time){
+    if (time < 10){
+        return `0${time}`
+    } else{
+        return time
+    }
 }
 
 window.onclick = function (event) {
