@@ -9,11 +9,12 @@ function CalTime() {
     let run = setInterval(function () {  
         let targetTime = new Date(time.value) 
         let currTime = new Date()
-        let totalsec = (targetTime - currTime) / 1000
+        let totalsec = Math.floor((targetTime - currTime) / 1000)
+        console.log(totalsec)
         if (totalsec < 0) {
             showErr()
             clearInterval(run)
-        } else if(totalsec===0) {
+        } else if(totalsec==0) {
             day.innerHTML = '0'
             hour.innerHTML = '0'
             min.innerHTML = '0'
@@ -34,7 +35,7 @@ function CalTime() {
 }
 
 function showErr() {
-    let modalBody = document.getElementById("err-content")
+    let modalBody = document.getElementById("content")
     modalBody.innerHTML = "TIME ERROR! CHOOSE ANOTHER DAY"
     modal.style.display = "block";
     let span = document.getElementsByClassName("close")[0];
@@ -45,8 +46,9 @@ function showErr() {
 }
 
 function showComplete(){
-    let modalBody = document.getElementById("err-content")
+    let modalBody = document.getElementById("content")
     modalBody.innerHTML = "ITS TIME BOY"
+    modalBody.style.color = "blue"
     modal.style.display = "block";
     let span = document.getElementsByClassName("close")[0];
     span.onclick = function () {
