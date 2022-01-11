@@ -7,10 +7,9 @@ var modal = document.getElementById("myModal")
 
 function CalTime() {
     let run = setInterval(function () {  
-        let targetTime = new Date(time.value) 
+        let targetTime = new Date(time.value)
         let currTime = new Date()
         let totalsec = Math.floor((targetTime - currTime) / 1000)
-        console.log(totalsec)
         if (totalsec < 0) {
             showErr()
             clearInterval(run)
@@ -27,8 +26,8 @@ function CalTime() {
             let m = Math.floor(totalsec / 60) % 60
             let s = Math.floor(totalsec) % 60
             day.innerHTML = d
-            hour.innerHTML = formatTime(m)
-            min.innerHTML = formatTime(h)
+            hour.innerHTML = formatTime(h)
+            min.innerHTML = formatTime(m)
             sec.innerHTML = formatTime(s)
         }
     }, 1000)
