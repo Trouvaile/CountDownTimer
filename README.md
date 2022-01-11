@@ -1,5 +1,5 @@
 # CountDownTimer
-Live version: https://trouvaile.github.io/CountDownTimer/
+Live version: https://letanit.github.io/CountDownTimer/
 
 Tier: 1-Beginner
 
